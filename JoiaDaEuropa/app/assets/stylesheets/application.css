@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+# application.js
+//= require startbootstrap/scripts
+ 
+# application.css
+*= require startbootstrap/styles
