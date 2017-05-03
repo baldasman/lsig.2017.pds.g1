@@ -3,15 +3,21 @@
   <head>
     <title>Joia da Europa</title>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
+    <meta name="description" content="Joia da Europa">
+    <meta name="author" content="">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <header class="row" style="text-align: center;">
+  <div class="container">
+  <div class="row" style="text-align: center; padding-top: 10px; border-style: inset; border-radius: 5px;" >
+    <header>
       <div class="col-md-3">
         <%= link_to 'PT', '/?lang=pt' %>
         <span>|</span>
@@ -28,7 +34,7 @@
         <% end %>
       </div>
     </header>
-
+</div>
     <%= yield %>
 
     <% if notice %>
@@ -43,5 +49,6 @@
       <%= alert %>
     </div>
     <% end %>
+    </div>
   </body>
 </html>
