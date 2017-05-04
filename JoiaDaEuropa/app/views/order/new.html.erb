@@ -9,10 +9,8 @@
       Delivery Date: <%= o.text_field :delivery_date %><br>
       Price: <%= o.text_field :price %><br>
       Comment: <%= o.text_area :client_comment %><br>
-      Attachment: <%= o.text_field :attachment %><br>
-
+      Attachmentt:    <%= o.file_field :attachment, :url =>{:action => 'new'}, :html => {:multipart => true} %><br>
       <%= o.submit %>
-
   <% end %>
 
 </div>

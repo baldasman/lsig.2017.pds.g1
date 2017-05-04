@@ -1,0 +1,4 @@
+<%= form_for(:attachment, :url =>{:action => 'new'}, :html => {:multipart => true}) do |f| %>
+<%= f.file_field :attachment %>
+<%= f.submit "Upload" %>
+<% end %>
