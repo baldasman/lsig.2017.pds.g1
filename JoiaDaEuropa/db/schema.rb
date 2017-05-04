@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170503230456) do
+ActiveRecord::Schema.define(version: 20170504094919) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "country"
@@ -19,20 +19,6 @@ ActiveRecord::Schema.define(version: 20170503230456) do
     t.string   "number_add"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "client_area_order_states", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "client_area_orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.datetime "date"
-    t.decimal  "total",      precision: 10
-    t.integer  "state_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
   end
 
   create_table "documents", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -52,6 +38,8 @@ ActiveRecord::Schema.define(version: 20170503230456) do
     t.string   "attachment"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.integer  "profile_id"
+    t.index ["profile_id"], name: "index_orders_on_profile_id", using: :btree
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -62,6 +50,10 @@ ActiveRecord::Schema.define(version: 20170503230456) do
     t.string   "telephone"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "document_id"
+    t.integer  "address_id"
+    t.index ["address_id"], name: "index_profiles_on_address_id", using: :btree
+    t.index ["document_id"], name: "index_profiles_on_document_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -77,7 +69,9 @@ ActiveRecord::Schema.define(version: 20170503230456) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.integer  "profile_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["profile_id"], name: "index_users_on_profile_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
