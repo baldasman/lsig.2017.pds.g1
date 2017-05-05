@@ -1,3 +1,3 @@
-class Address < ApplicationRecord::Base
+class Address < ApplicationRecord
   belongs_to :profile
 end

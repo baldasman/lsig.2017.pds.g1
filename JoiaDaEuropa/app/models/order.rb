@@ -1,3 +1,3 @@
-class Order < ApplicationRecord::Base
+class Order < ApplicationRecord
   belongs_to :profile
 end
