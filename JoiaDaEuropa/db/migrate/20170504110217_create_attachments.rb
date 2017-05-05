@@ -1,8 +1,8 @@
 class CreateAttachments < ActiveRecord::Migration[5.0]
   def change
     create_table :attachments do |t|
-      t.string :name
-      t.string :file
+      t.column :name, :string
+      t.column :file, :string
 
       t.timestamps
     end

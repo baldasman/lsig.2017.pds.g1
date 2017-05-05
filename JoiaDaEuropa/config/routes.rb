@@ -15,3 +15,10 @@ Rails.application.routes.draw do
 
   root to: 'home#index'
 end
+
+# Route para o bd, verificar!!
+# https://www.tutorialspoint.com/ruby-on-rails/rails-file-uploading.htm
+# CarrierWaveExample::Application.routes.draw do
+# resources :attachments, only: [:index, :new, :create, :destroy]
+# root "attachments#index"
+# end
