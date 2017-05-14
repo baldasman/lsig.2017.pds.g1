@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>Joia da Europa</title>
     <%= csrf_meta_tags %>
-  
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
@@ -21,33 +21,33 @@
     <!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+        <![endif]-->
 
-  </head>
+    </head>
 
-  <body>
-  <div class="container" style="padding-top: 10px">
-  <div class="row" style="text-align: center; padding-top: 10px; border-style: inset; border-radius: 5px;" >
-    <header>
-      <div class="col-md-3">
-        <%= link_to 'PT', '/?lang=pt' %>
-        <span>|</span>
-        <%= link_to 'EN', '/?lang=en' %>
+    <body>
+      <div class="container" style="padding-top: 10px">
+          <div class="row" style="text-align: center; padding-top: 10px; border-style: inset; border-radius: 5px;" >
+            <header>
+              <div class="col-md-3">
+                <%= link_to 'PT', '/?lang=pt' %>
+                <span>|</span>
+                <%= link_to 'EN', '/?lang=en' %>
 
-      </div>
-      <div class="col-md-6">
-        <img src="<%= asset_path 'logo.png' %>">
-      </div>
-      <div class="col-md-3">
-        <% if current_user %>
-          <%= link_to t('my_account'), profile_index_path %><br>
-          <%= link_to 'Sign Out', destroy_user_session_path, {method: 'delete'} %>
-        <% else %>
-            <%= link_to 'Sign In', new_user_session_path %>
-        <% end %>
-      </div>
-    </header>
-</div>
+            </div>
+            <div class="col-md-6">
+                <img src="<%= asset_path 'logo.png' %>">
+            </div>
+            <div class="col-md-3">
+                <% if current_user %>
+                <%= link_to t('my_account'), profile_index_path %><br>
+                <%= link_to 'Sign Out', destroy_user_session_path, {method: 'delete'} %>
+                <% else %>
+                <%= link_to 'Sign In', new_user_session_path %>
+                <% end %>
+            </div>
+        </header>
+    </div>
 
     <div id="wrapper">
 
@@ -56,22 +56,14 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
                     <a href="#">
-                        Joia da Europa
+                        LOGO AQUI
                     </a>
                 </li>
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Quem Somos</a>
-                </li>
-                <li>
-                    <a href="#">Missão</a>
-                </li>
-                <li>
-                    <a href="#">Contactos</a>
-                </li>
-              
+                <li><p><%= link_to 'Home', root_path %> </p></li>
+                <li><%= link_to 'Quem Somos', quemsomos_path %></li>
+                <li><%= link_to 'Missão', missao_path %></li>
+                <li><%= link_to 'Contactos', contactos_path %></li>
+
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -82,42 +74,42 @@
                 <%= yield %>
 
 
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>
-                    </div>
-                </div>
+                <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Menu</a>
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
     </div>
-    <!-- /#wrapper -->
+</div>
+<!-- /#page-content-wrapper -->
 
-    <!-- jQuery -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/js/jquery.js"></script>
+</div>
+<!-- /#wrapper -->
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/js/bootstrap.min.js"></script>
+<!-- jQuery -->
+<script src="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/js/jquery.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
+<!-- Bootstrap Core JavaScript -->
+<script src="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/js/bootstrap.min.js"></script>
+
+<!-- Menu Toggle Script -->
+<script>
     $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
-    </script>
+</script>
 
-    <% if notice %>
-    <div class="alert alert-info" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <%= notice %>
-    </div>
-    <% end %>
-    <% if alert %>
-    <div class="alert alert-warning" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <%= alert %>
-    </div>
-    <% end %>
-    </div>
-  </body>
+<% if notice %>     
+<div class="alert alert-info" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= notice %>
+</div>
+<% end %>
+<% if alert %>
+<div class="alert alert-warning" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <%= alert %>
+</div>
+<% end %>
+</div>
+</body>
 </html>
