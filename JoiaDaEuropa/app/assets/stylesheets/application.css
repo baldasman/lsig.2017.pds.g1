@@ -24,7 +24,14 @@ html, body {
 }
 
 /* Div lateral */
-#right {
+#rightHeader {
+    width: 80%;
+    height: auto;
+    position: absolute;
+    right: 0;
+}
+
+#rightContent {
     width: 80%;
     height: auto;
     position: absolute;
