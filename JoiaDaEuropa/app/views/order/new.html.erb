@@ -1,0 +1,14 @@
+<div id="right">
+  <h1>Add new order</h1>
+
+  <%= form_for :order, url: order_create_path do |o| %>
+      Delivery Date: <%= o.text_field :delivery_date %><br>
+      Price: <%= o.text_field :price %><br>
+      Comment: <%= o.text_area :client_comment %><br>
+      Attachment: <%= o.text_field :attachment %><br>
+
+      <%= o.submit %>
+
+  <% end %>
+
+</div>

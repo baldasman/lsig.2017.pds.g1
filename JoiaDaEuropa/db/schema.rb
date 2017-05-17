@@ -29,16 +29,14 @@ ActiveRecord::Schema.define(version: 20170504094919) do
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.date     "delivery_date"
-    t.date     "order_date"
-    t.integer  "price"
-    t.string   "status"
-    t.text     "client_comment", limit: 65535
-    t.text     "adm_comment",    limit: 65535
-    t.string   "attachment"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.integer  "profile_id"
+    t.date    "delivery_date"
+    t.date    "order_date"
+    t.integer "price"
+    t.string  "status"
+    t.text    "client_comment", limit: 65535
+    t.text    "adm_comment",    limit: 65535
+    t.string  "attachment"
+    t.integer "profile_id"
     t.index ["profile_id"], name: "index_orders_on_profile_id", using: :btree
   end
 
@@ -70,7 +68,6 @@ ActiveRecord::Schema.define(version: 20170504094919) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "profile_id"
-    t.integer  "acc_type"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["profile_id"], name: "index_users_on_profile_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree

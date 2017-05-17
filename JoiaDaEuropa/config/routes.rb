@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   #Order Controller
+  resources :order
   get 'order/list'
   get 'order/new'
   post 'order/create'

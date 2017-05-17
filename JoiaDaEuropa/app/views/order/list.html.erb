@@ -1,16 +1,18 @@
-<% if @orders.blank? %>
+<div id="right">
+
+  <% if @orders.blank? %>
     <p>There are not any orders currently in the system.</p>
-<% else %>
+  <% else %>
     <p>These are the current orders in our system</p>
-
-
-      <% @orders.each do |c| %>
+      <% @orders.each do |order| %>
           <p>
-            <strong>ID: </strong> <%= c.id %><br />
-            <strong>Price: </strong> $<%= c.price %><br />
-            <strong>Status :</strong> <%= c.status %><br />
-            <strong>ADM Comment:</strong> <%= c.adm_comment %><br />
-            <strong>Delivery Date: </strong> <%= c.delivery_date %><br />
+            <strong>ID: </strong> <%= order.id %><br />
+            <strong>Price: </strong> $<%= order.price %><br />
+            <strong>Status :</strong> <%= order.status %><br />
+            <strong>ADM Comment:</strong> <%= order.adm_comment %><br />
+            <strong>Delivery Date: </strong> <%= order.delivery_date %><br />
           </p>
       <% end %>
     <% end %>
+
+</div>

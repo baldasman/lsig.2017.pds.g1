@@ -3,7 +3,7 @@ class OrderController < ApplicationController
   def list
     #@user = current_user
     #@id_usuario = @user.profile_id
-    #@orders = Order.all
+    @orders = Order.all
     #@orders = Order.where("profile_id = ?", @id_usuario)
   end
 
@@ -17,7 +17,13 @@ class OrderController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+    @order.save
   end
+
+  private
+    def order_params
+      params.require(:order).permit(:delivery_date, :price, :client_comment, :attachment)
+    end
 
   def edit
     @order = @Order.find(params[:id])
@@ -31,7 +37,7 @@ class OrderController < ApplicationController
 
   def delete
     Order.find(params[:id]).destroy
-    #redirect_to :action => 'list', :profile_id => @order
+    redirect_to :action => 'list'
   end
 
 end

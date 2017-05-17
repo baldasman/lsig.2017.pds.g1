@@ -8,7 +8,6 @@ class CreateOrders < ActiveRecord::Migration[5.0]
       t.column :client_comment, :text
       t.column :adm_comment, :text
       t.column :attachment, :string
-      t.timestamps
     end
   end
 end
