@@ -16,7 +16,7 @@ class OrderController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params)
+    @order = Order.new params[:order]
     @order.save
   end
 
