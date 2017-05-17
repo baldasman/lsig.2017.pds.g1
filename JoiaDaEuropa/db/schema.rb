@@ -69,7 +69,6 @@ ActiveRecord::Schema.define(version: 20170504094919) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "acc_type"
     t.integer  "profile_id"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["profile_id"], name: "index_users_on_profile_id", using: :btree
