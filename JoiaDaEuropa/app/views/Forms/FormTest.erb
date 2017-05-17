@@ -1,0 +1,23 @@
+<div class="container">
+
+
+  <div class="row">
+    <div class="col-md-3"></div>
+
+    <div class="col-md-6">
+      <%= radio_button_tag(:Gender, "male") %>
+      <%= label_tag(:age_child, "Male") %>
+      <%= radio_button_tag(:age, "female") %>
+      <%= label_tag(:age_adult, "Female") %>
+
+      <%= text_area_tag(:message, "Nome", size: "24x6") %>
+      <%= date_field(:user, :born_on) %>
+
+      <h1>Bem-vindo à Joia da Europa</h1>
+      <p>A Joia da Europa é uma empresa que se dedica inteiramente à fabricação de calçado de qualilidade e conforto. Se procura qualidade, inovação, transformação, diferenciação de produtos, venha conhecer a nossa empresa, porque aqui encontra tudo o que precisa.</p>
+    </div>
+    <div class="col-md-3"></div>
+
+  </div>
+
+</div>
