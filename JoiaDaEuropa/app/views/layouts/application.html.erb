@@ -12,34 +12,38 @@
 
 <body>
 
-
-<div id="left" class="leftMenu">
-  <div id="logo"><img src="<%= asset_path 'logo.png' %>"></div>
-  <ul>
-    <%= link_to "Home", index_path %>
-    <%= link_to "Missao", missao_path %>
-    <%= link_to "Quem Somos", quemsomos_path %>
-    <%= link_to "Contactos", contactos_path %>
-    <% if current_user %>
-        <a href="#">Inicio</a>
-        <a href="#">Perfil</a>
-        <a href="#">Encomendas</a>
-    <% end %>
-  </ul>
-</div>
-<div id="rightHeader">
-  <div>
-
-    <%= link_to 'PT', '/?lang=pt', :class => "btn btn-info" %>
-    <span>|</span>
-    <%= link_to 'EN', '/?lang=en', :class => "btn btn-info" %>
-    <% if current_user %>
-        <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => "btn btn-danger", :glyph => :home %>
-    <% else %>
-        <%= link_to 'Sign In', new_user_session_path, :class => "btn btn-success" %>
-    <% end %>
+<div class="row-offcanvas row-offcanvas-left">
+  <div id="left" class="leftMenu">
+    <div id="logo"><img src="<%= asset_path 'logo.png' %>"></div>
+      <%= link_to "Home", index_path %>
+      <%= link_to "Missão", missao_path %>
+      <%= link_to "Quem Somos", quemsomos_path %>
+      <%= link_to "Contactos", contactos_path %>
+      <% if current_user %>
+        <%= link_to "Inicio", inicio_path %>
+        <%= link_to "Perfil", perfil_path %>
+        <%= link_to "Encomendas", encomendas_path %>
+      <% end %>
   </div>
-<%= yield %>
+  <div id="rightHeader">
+    <div class="row">
+      <div class="col-sm-12 text-right">
+        <div class="col-sm-10 text-right">
+      <%= link_to 'PT', '/?lang=pt', :class => "btn btn-info" %>
+      <span>|</span>
+      <%= link_to 'EN', '/?lang=en', :class => "btn btn-info" %>
+        </div>
+        <div class="col-sm-2">
+      <% if current_user %>
+          <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => "btn btn-danger", :glyph => :home %>
+      <% else %>
+          <%= link_to 'Sign In', new_user_session_path, :class => "btn btn-success" %>
+      <% end %>
+        </div>
+    </div>
+    </div>
+    <%= yield %>
+  </div>
 </div>
 
 <!--

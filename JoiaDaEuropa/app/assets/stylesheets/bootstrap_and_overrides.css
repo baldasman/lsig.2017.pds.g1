@@ -9,3 +9,10 @@
     background-color:#FFF;
     box-shadow: 0 0 2px #000000;
 }
+
+.margin-left{
+     margin-left: 80px !important;
+ }
+.text-center{
+    text-align: center !important;
+}

@@ -17,4 +17,13 @@ class HomeController < ApplicationController
     def contactos
     end
 
+    def inicio
+    end
+
+    def perfil
+    end
+
+    def encomendas
+    end
+
 end

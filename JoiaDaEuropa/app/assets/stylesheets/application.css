@@ -13,43 +13,48 @@
  *= require_tree .
  *= require_self
  */
-html, body {
-    height: 100%;
+html, body, .row-offcanvas {
+    /*height: 100%;
     margin: 0;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    background-color: #ededed;
-    background-repeat: round;
 
+    background-repeat: round;
+    overflow-x: hidden;*/
+    height:100%;
+    background-color: #ededed;
 }
 
 /* Div lateral */
 #rightHeader {
     width: 80%;
-    height: auto;
+    height: inherit;
     position: absolute;
-    right: 0;
-}
-
-#rightContent {
-    width: 80%;
-    height: auto;
-    position: absolute;
-    right: 0;
+    margin-top: 10px;
+    margin-left: 18%;
 }
 
 /* Menu */
 .leftMenu {
+    /*
     height: 100%; /* 100% Full-height */
-    width: 20%;
+    /*width: 18%;
     position: fixed; /* Fica no lugar */
-    z-index: 1; /* Fica no topo */
-    top: 0;
+    /* z-index: 1; /* Fica no topo */
+    /*top: 0;
     left: 0;
     background-color: #428BCA;
     overflow-x: hidden; /* Desabilita o scroll horizontal*/
-
     box-shadow: 2px 1px 0px #888;
+    width: inherit;
+    min-width: 220px;
+    max-width: 220px;
+    background-color:#428BCA;
+    float: left;
+    height:100%;
+    position:relative;
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 
 /* Links do Menu */
@@ -63,7 +68,6 @@ html, body {
     font-style: normal;
     width: 100%;
     font-weight: bold;
-    -webkit-box-shadow: 10px 0 5px -2px #888;
 }
 
 /* Altera a cor ao passar o mouse */
@@ -80,8 +84,14 @@ html, body {
 
 /* Login */
 #loginForm{
-    width:40%;
-    height: 100%;
-    margin-top: 70px;
-    margin-left: 20%;
+    /*width:40%;*/
+    margin-top: 2%;
+    margin-left: 30%;
+    min-width: 350px;
+    max-width: 350px;
+}
+
+/* Index Text */
+#public{
+    text-align: center;
 }
