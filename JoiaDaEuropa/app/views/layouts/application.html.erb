@@ -16,10 +16,10 @@
 <div id="left" class="leftMenu">
   <div id="logo"><img src="<%= asset_path 'logo.png' %>"></div>
   <ul>
-    <a href="#"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>&nbspHome</a>
-    <a href="#">Missão</a>
-    <a href="#">Quem Somos</a>
-    <a href="#">Contactos</a>
+    <%= link_to "Home", index_path %>
+    <%= link_to "Missao", missao_path %>
+    <%= link_to "Quem Somos", quemsomos_path %>
+    <%= link_to "Contactos", contactos_path %>
   <% if current_user %>
     <a href="#">Inicio</a>
     <a href="#">Perfil</a>
@@ -45,7 +45,7 @@
 <%= yield %>
 
 
-        <!--  <% if notice %>
+    <!--<% if notice %>
     <div class="alert alert-info" role="alert">
       <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       <%= notice %>

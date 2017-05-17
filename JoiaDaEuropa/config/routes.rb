@@ -23,4 +23,9 @@ Rails.application.routes.draw do
   get 'order/update'
   #--
 
+  get '/missao', to:'home#missao', as:'missao'
+  get '/index', to:'home#index', as:'index'
+  get '/QuemSomos', to:'home#quemsomos', as:'quemsomos'
+  get '/Contactos', to:'home#contactos', as:'contactos'
+
 end

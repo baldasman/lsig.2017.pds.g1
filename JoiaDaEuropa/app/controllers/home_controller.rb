@@ -8,5 +8,13 @@ class HomeController < ApplicationController
 
     end
 
+    def missao
+    end
+
+    def quemsomos
+    end
+
+    def contactos
+    end
 
 end
