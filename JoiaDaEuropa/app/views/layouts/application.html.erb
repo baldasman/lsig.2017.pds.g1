@@ -8,11 +8,15 @@
 
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  <!--<%= stylesheet_link_tag 'bootstrap.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'bootstrap.min', 'data-turbolinks-track': 'reload' %>-->
+
 </head>
 
 <body>
 
-<div class="row-offcanvas row-offcanvas-left">
+<!--<div class="row-offcanvas row-offcanvas-left">
   <div id="left" class="leftMenu">
     <div id="logo"><img src="<%= asset_path 'logo.png' %>"></div>
       <%= link_to "Home", index_path %>
@@ -24,28 +28,52 @@
         <%= link_to "Perfil", perfil_path %>
         <%= link_to "Encomendas", listar_path %>
       <% end %>
-  </div>
-  <div id="rightHeader">
-    <div class="row">
-      <div class="col-sm-12 text-right">
-        <div class="col-sm-10 text-right">
-      <%= link_to 'PT', '/?lang=pt', :class => "btn btn-info" %>
-      <span>|</span>
-      <%= link_to 'EN', '/?lang=en', :class => "btn btn-info" %>
-        </div>
-        <div class="col-sm-2">
-      <% if current_user %>
-          <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, :class => "btn btn-danger", :glyph => :home %>
-      <% else %>
-          <%= link_to 'Sign In', new_user_session_path, :class => "btn btn-success" %>
-      <% end %>
-        </div>
-    </div>
-    </div>
-    <%= yield %>
-  </div>
-</div>
+  </div>-->
+  <header class="navbar navbar-fixed-top"> 
+    <nav class="navbar-inner">
+      <div class="container">
+              <nav class="navbar navbar-default estilo">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <!--<div id="logo"><img style="width: 70%;" src="<%= asset_path 'logo.png' %>" ></div>-->
+          </div>
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li><%= link_to "Home", index_path %></li>
+              <li><%= link_to "Missão", missao_path %></li>
+              <li><%= link_to "Quem Somos", quemsomos_path %></li>
+              <li><%= link_to "Contactos", contactos_path %></li>
+              <% if current_user %>
 
+                <li><%= link_to "Inicio", inicio_path %></li>
+                <li><%= link_to "Perfil", perfil_path %></li>
+                <li><%= link_to "Encomendas", listar_path %></li>
+              <% end %>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+
+              <li><%= link_to 'PT', '/?lang=pt' %></li>
+                <li><%= link_to 'EN', '/?lang=en' %></li>
+                  
+                <% if current_user %>
+                    <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+                <% else %>
+                    <li><%= link_to 'Sign In', new_user_session_path %></li>
+                <% end %>
+            </ul>
+          </div>
+      </nav>
+      </div>
+    </nav>
+
+</div>
+</nav>
+</header>
 <!--
 <% if notice %>
     <div class="alert alert-info" role="alert">
@@ -59,5 +87,9 @@
       <%= alert %>
     </div>
     <% end %>-->
+<div class="container" style="padding-top: 80px">
+    <%= yield %>
+
+</div>
 </body>
 </html>
