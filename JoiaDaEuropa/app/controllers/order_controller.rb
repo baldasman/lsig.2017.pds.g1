@@ -5,6 +5,7 @@ class OrderController < ApplicationController
         #@id_usuario = @user.profile_id
         @orders = Order.where(profile_id: current_user.profile_id) #, status: 'pending'
         #@orders = Order.where("profile_id = ?", @id_usuario)
+
     end
 
     def show
