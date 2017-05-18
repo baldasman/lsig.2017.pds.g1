@@ -28,12 +28,12 @@
             <!--<p>These are the current orders in our system</p>-->
             <% @orders.each do |order| %>
                 <tr>
-                  <td><%= order.id %></td>
+                  <td><%= link_to order.id, order_show_path(order.id) %></td>
                   <td>$<%= order.price %></td>
                   <td><%= order.status %></td>
                   <td><%= order.client_comment %></td>
                   <td><%= order.delivery_date %></td>
-                  <td><%=link_to "Cancelar",  {:id => order.id}, :class=> "btn btn-danger btn-sm"%></td>
+                  <td><%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza qie deseja apagar?'}%></td>
                 </tr>
             <% end %>
         <% end %>

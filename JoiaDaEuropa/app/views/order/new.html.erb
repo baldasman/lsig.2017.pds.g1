@@ -1,6 +1,10 @@
 <div id="right">
   <h1>Add new order</h1>
 
+    <div>
+        <%= @errors %>
+    </div>
+
   <%= form_for :order, url: order_create_path do |o| %>
       Delivery Date: <%= o.text_field :delivery_date %><br>
       Price: <%= o.text_field :price %><br>

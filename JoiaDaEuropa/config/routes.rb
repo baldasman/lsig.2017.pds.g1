@@ -12,16 +12,16 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   #Order Controller
-  resources :order
-  get 'order/list'
+  #resources :order
+
   get 'order/new'
   post 'order/create'
   patch 'order/update'
   get 'order/list'
-  get 'order/show'
+  get 'order/show/:id', to: 'order#show', as: 'order_show'
   get 'order/edit'
-  get 'order/delete'
-  get 'order/update'
+  post 'order/delete'
+  post 'order/update'
   #--
 
   get '/Missao', to:'home#missao', as:'missao'
