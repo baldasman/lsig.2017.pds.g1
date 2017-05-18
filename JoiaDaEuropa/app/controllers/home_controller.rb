@@ -26,4 +26,11 @@ class HomeController < ApplicationController
     def encomendas
     end
 
+    def criar
+    end
+
+    def listar
+    end
+
+
 end

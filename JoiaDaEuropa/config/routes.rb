@@ -31,4 +31,6 @@ Rails.application.routes.draw do
   get '/Encomendas', to:'client_area#encomendas', as:'encomendas'
   get '/Perfil', to:'client_area#perfil', as:'perfil'
   get '/Inicio', to:'client_area#inicio', as:'inicio'
+  get '/Criar', to:'order#new', as:'criar'
+  get '/ListarEncomendas', to:'order#list', as:'listar'
 end
