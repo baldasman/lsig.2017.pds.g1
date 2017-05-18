@@ -33,7 +33,11 @@
                   <td><%= order.status %></td>
                   <td><%= order.client_comment %></td>
                   <td><%= order.delivery_date %></td>
-                  <td><%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza qie deseja apagar?'}%></td>
+                  <td>
+                      <% if order.status == 'pending' %>
+                      <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza qie deseja apagar?'}%>
+                      <% end %>
+                  </td>
                 </tr>
             <% end %>
         <% end %>
