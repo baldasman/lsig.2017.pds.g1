@@ -14,7 +14,7 @@ class ProfileController < ApplicationController
 
   def show
 
-    @profile = Profile.where(id: current_user.profile_id)
+    @profile = Profile.find_by(id: params[:id])
 
   end
 
@@ -41,17 +41,16 @@ class ProfileController < ApplicationController
   end
 
   def edit
-    @profile = Profile.where(id: current_user.profile_id)
+    @profile = Profile.find_by(id: current_user.profile_id)
   end
 
   def update
-    @profile = Profile.where(id: current_user.profile_id)
+    @profile = Profile.find_by(id: current_user.profile_id)
     @profile.update_attributes profile_params
     if @profile.save
-      redirect_to profile_show_path
+      redirect_to profile_edit_path(@profile.id)
     else
       flash[:errors] = @profile.errors.messages
-      redirect_to profile_new_path
     end
   end
 

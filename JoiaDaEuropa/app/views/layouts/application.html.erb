@@ -57,8 +57,8 @@
               </ul>
               <ul class="nav navbar-nav navbar-right">
 
-              <li><%= link_to 'PT', '/?lang=pt' %></li>
-                <li><%= link_to 'EN', '/?lang=en' %></li>
+              <li><%= link_to 'PT', '?lang=pt' %></li>
+                <li><%= link_to 'EN', '?lang=en' %></li>
                   
                 <% if current_user %>
                     <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
@@ -67,6 +67,7 @@
                 <% end %>
             </ul>
           </div>
+        </div>
       </nav>
       </div>
     </nav>
