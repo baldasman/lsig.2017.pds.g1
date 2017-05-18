@@ -1,7 +1,7 @@
 class ClientAreaController < ApplicationController
 
 
-    before_action :check_profile
+
 
     def index
 
@@ -30,15 +30,6 @@ class ClientAreaController < ApplicationController
 
     end
 
-    def check_profile
 
-        if current_user.profile_id.nil?
-            _profile = Profile.new name: current_user.email, account_type: 1
-            _profile.save
-
-            current_user.profile_id = _profile.id
-            current_user.save
-        end
-    end
 
 end
