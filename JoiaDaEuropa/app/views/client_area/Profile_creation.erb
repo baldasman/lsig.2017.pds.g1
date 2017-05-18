@@ -1,0 +1,17 @@
+<div id="right">
+  <h1>Criar dados do perfil</h1>
+
+  <%= form_for :order, url: order_create_path do |o| %>
+
+      Sexo: <%= f.label :gender, 'masculino' %> <%= f.radio_button :gender_male, 0 %>
+        <%= f.label :Gender, 'feminino' %> <%= f.radio_button :gender_female, 1 %><br />
+      Nome: <%= o.text_field :name %><br/>
+      Data de Nascimento: <%= o.date_select :birth %><br/>
+      Documento: <%= o.text_field :document_id %><br/>
+      Telefone: <%= o.text_field :telephone %><br/>
+      E-mail: <%= o.text_field :email %><br/>
+      <%= o.submit %>
+
+  <% end %>
+
+</div>
