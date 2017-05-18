@@ -18,7 +18,6 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   #Order Controller
-  #resources :order
 
   get 'order/new'
   post 'order/create'
@@ -30,12 +29,24 @@ Rails.application.routes.draw do
   post 'order/update'
   #--
 
+  #Profile Controller
+
+  get 'profile/new'
+  post 'profile/create'
+  patch 'profile/update'
+  get 'profile/list'
+  get 'profile/show/:id', to: 'profile#show', as: 'profile_show'
+  get 'profile/edit'
+  post 'profile/delete'
+  post 'profile/update'
+  #--
+
   get '/Missao', to:'home#missao', as:'missao'
   get '/Index', to:'home#index', as:'index'
   get '/QuemSomos', to:'home#quemsomos', as:'quemsomos'
   get '/Contactos', to:'home#contactos', as:'contactos'
   get '/Encomendas', to:'client_area#encomendas', as:'encomendas'
-  get '/Perfil', to:'client_area#perfil', as:'perfil'
+  get '/Perfil', to:'profile#edit', as:'perfil'
   get '/Inicio', to:'client_area#inicio', as:'inicio'
   get '/Criar', to:'order#new', as:'criar'
   get '/ListarEncomendas', to:'order#list', as:'listar'

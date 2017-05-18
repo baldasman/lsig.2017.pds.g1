@@ -1,10 +1,8 @@
 class OrderController < ApplicationController
 
     def list
-        #@user = current_user
-        #@id_usuario = @user.profile_id
+
         @orders = Order.where(profile_id: current_user.profile_id) #, status: 'pending'
-        #@orders = Order.where("profile_id = ?", @id_usuario)
 
     end
 
@@ -15,6 +13,7 @@ class OrderController < ApplicationController
     end
 
     def new
+
         @order = Order.new
         @errors = flash[:errors]
 
@@ -36,13 +35,18 @@ class OrderController < ApplicationController
     end
 
     def edit
-        @order = @Order.find(params[:id])
+        @order = Order.find(params[:id])
     end
 
     def update
-        @order = @Order.find(params[:id])
-        order.update_attributes(order_param)
-        #redirect_to :action => 'list', :profile_id => @order
+        @order = Order.find(params[:id])
+        @order.update_attributes order_params
+        if @order.save
+            redirect_to order_show_path(@order.id)
+        else
+            flash[:errors] = @order.errors.messages
+            redirect_to order_new_path
+        end
     end
 
     def delete

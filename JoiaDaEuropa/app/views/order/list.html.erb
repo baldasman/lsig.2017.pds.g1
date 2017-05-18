@@ -38,6 +38,11 @@
                       <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza qie deseja apagar?'}%>
                       <% end %>
                   </td>
+                  <td>
+                    <% if order.status == 'pending' %>
+                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-danger btn-sm" %>
+                    <% end %>
+                  </td>
                 </tr>
             <% end %>
         <% end %>
