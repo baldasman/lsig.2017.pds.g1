@@ -7,9 +7,9 @@ class OrderController < ApplicationController
     #@orders = Order.where("profile_id = ?", @id_usuario)
   end
 
-  #def show
-  #  @order = Order.all
-  #end
+  def show
+   @order = Order.find(params[:id])
+  end
 
   def new
     @order = Order.new
@@ -37,7 +37,7 @@ class OrderController < ApplicationController
 
   def delete
     Order.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    redirect_to :action => 'show'
   end
 
 end

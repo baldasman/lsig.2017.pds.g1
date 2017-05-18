@@ -1,34 +1,52 @@
 <div id="rightContent">
-  <div id="list">
-    <h2>Pedidos</h2>
-  <div class="table-responsive">
-    <table class="table table-striped">
-      <% if @orders.blank? %>
-          <tr>
-            <th class="danger">Não há pedidos registrados.</th>
-          </tr>
-      <% else %>
-          <!--<p>These are the current orders in our system</p>-->
-          <% @orders.each do |order| %>
-              <tr>
-                <th>ID</th>
-                <th>Preço</th>
-                <th>Status</th>
-                <th>Comentário</th>
-                <th>Data de Entrega</th>
-                <th>Ações</th>
-              </tr>
-              <tr>
-               <td><%= order.id %></td>
-                <td>$<%= order.price %></td>
-                <td><%= order.status %></td>
-                <td><%= order.client_comment %></td>
-                <td><%= order.delivery_date %></td>
-                <td><%=link_to "Cancelar", {:action=>'delete', :id => order.id}, :class=> "btn btn-danger btn-sm"%></td>
-              </tr>
-          <% end %>
-      <% end %>
-    </table>
+  <div class="row">
+    <div class="panel panel-primary filterable">
+      <div class="panel-heading">
+        <h3 class="panel-title">Pedidos</h3>
+        <div class="pull-right">
+          <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+        <tr class="filters">
+          <th><input type="text" class="form-control" placeholder="ID" disabled></th>
+          <th><input type="text" class="form-control" placeholder="Preço" disabled></th>
+          <th><input type="text" class="form-control" placeholder="Status" disabled></th>
+          <th><input type="text" class="form-control" placeholder="Comentário" disabled></th>
+          <th><input type="text" class="form-control" placeholder="Data de Entrega" disabled></th>
+          <th>Ações</th>
+      </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <% if @orders.blank? %>
+            <tr>
+              <th class="danger">Não há pedidos registrados.</th>
+            </tr>
+        <% else %>
+            <!--<p>These are the current orders in our system</p>-->
+            <% @orders.each do |order| %>
+                <tr>
+                  <td><%= order.id %></td>
+                  <td>$<%= order.price %></td>
+                  <td><%= order.status %></td>
+                  <td><%= order.client_comment %></td>
+                  <td><%= order.delivery_date %></td>
+                  <td><%=link_to "Cancelar",  {:id => order.id}, :class=> "btn btn-danger btn-sm"%></td>
+                </tr>
+            <% end %>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="pull-right">
+  <%= link_to " Criar", criar_path, :class => "btn btn-success  margin-left " %>
   </div>
 </div>
-</div>
+
+
+
+
+
