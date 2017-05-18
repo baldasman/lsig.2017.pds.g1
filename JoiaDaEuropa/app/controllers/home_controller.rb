@@ -32,5 +32,8 @@ class HomeController < ApplicationController
     def listar
     end
 
+    def inicioADM
+    end
+
 
 end

@@ -2,7 +2,17 @@ class OrderController < ApplicationController
 
     def list
 
-        @orders = Order.where(profile_id: current_user.profile_id) #, status: 'pending'
+        @profile = Profile.find_by(id: current_user.profile_id)
+
+        if @profile.account_type == 1
+
+            @orders = Order.where(profile_id: current_user.profile_id) #, status: 'pending'
+
+        else
+
+          @orders = Order.order :id
+
+        end
 
     end
 
