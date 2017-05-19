@@ -11,24 +11,24 @@
 
       <div class="panel panel-primary">
         <div class="panel-heading">
-          <h4>Add new order</h4></div>
+          <h4>Novo pedido</h4></div>
         <div class="panel-body">
-          <label>Delivery Date</label>
+          <label>Data entrega (YYYY/MM/DD)</label>
           <div class="col-10">
             <%= o.text_field :delivery_date, :class => "form-control" %>
           </div>
 
-          <label class="col-2 col-form-label">Price</label>
+          <label class="col-2 col-form-label">Valor</label>
           <div class="col-10">
             <%= o.text_field :price, :class => "form-control" %>
           </div>
 
-          <label class="col-2 col-form-label">Comment</label>
+          <label class="col-2 col-form-label">Descrição</label>
           <div class="col-10">
             <%= o.text_area :client_comment, :class => "form-control" %>
           </div>
 
-          <label class="col-2 col-form-label">Attachment</label>
+          <label class="col-2 col-form-label">Arquivo</label>
           <div class="col-10">
             <%= o.file_field :attachment, :url => {:action => 'new'}, :html => {:multipart => true}, :class => "form-control" %>
           </div>
