@@ -1,24 +1,7 @@
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+OrderNew (por painel e form control)
+OrderShow (Melhorar a visualização)
+EditarPerfil (Melhorar o formulário com bootstrap)
+Arrumar posicionamento dos paineis - Login, SignUp e Sign In
+Traduções PT e EN
+Filtrar Encomendas finalizadas quando clicar no botão do inicio do usuário
+Tela de início do cliente mostrar: "Bem-vindo 'NOME DO CLIENTE'"
