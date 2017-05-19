@@ -33,7 +33,8 @@
             <%= o.file_field :attachment, :url => {:action => 'new'}, :html => {:multipart => true}, :class => "form-control" %>
           </div>
           <br>
-          <%= o.submit%>
+          <%= o.submit%><br/><br/>
+          <%= link_to "Voltar as Encomendas", listar_path, :class => "btn btn-warning btn-sm" %>
         </div>
   <% end %>
   </div>

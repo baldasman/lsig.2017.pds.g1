@@ -34,13 +34,13 @@
                   <td><%= order.client_comment %></td>
                   <td><%= order.delivery_date %></td>
                   <td>
-                      <% if order.status == 'pending' %>
+                      <% if order.status == '1' %>
                       <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza que deseja apagar?'}%>
                       <% end %>
                   </td>
                   <td>
-                    <% if order.status == 'pending' %>
-                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-danger btn-sm" %>
+                    <% if order.status == '1' %>
+                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm" %>
                     <% end %>
                   </td>
                 </tr>
