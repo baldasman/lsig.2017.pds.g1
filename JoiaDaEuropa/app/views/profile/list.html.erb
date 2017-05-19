@@ -1,0 +1,10 @@
+<div id="right">
+<% @profile.each do |profile| %>
+    <tr>
+      <td><%= profile.id%></td><br>
+      <td><%= profile.gender %></td><br>
+      <td><%= profile.birth %></td><br>
+      <td><%= profile.name %></td><br>
+    </tr>
+<% end %>
+</div>

@@ -1,0 +1,16 @@
+<div id="right">
+  <h1>Editar perfil</h1>
+
+  <div>
+    <%= @errors %>
+  </div>
+
+  <%= form_for :profiles, url: profile_update_path do |p| %>
+      Sexo: <%= p.text_field :gender %><br>
+      Data Nascimento (YYYY-MM-DD) <%= p.text_field :birth %><br>
+      Telefone: <%= p.text_field :telephone %><br>
+
+  <%= p.submit %>
+  <% end %>
+
+</div>

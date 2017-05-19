@@ -1,1 +1,8 @@
-<h1>Order #<%= @order.id %></h1>
+<h1>Pedido #<%= @order.id %>cadastrado no sistema</h1>
+
+
+  <td>$<%= @order.price %></td><br>
+  <td><%= @order.status %></td><br>
+  <td><%= @order.client_comment %></td><br>
+  <td><%= @order.delivery_date %></td><br>
+  <td><%= @order.attachment %></td><br>

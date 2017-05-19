@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170504094919) do
+ActiveRecord::Schema.define(version: 20170504094920) do
 
   create_table "addresses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "country"
     t.string   "zip_code"
     t.string   "street"
     t.string   "number_add"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "attachments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "name"
+    t.string   "attachment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -29,19 +36,23 @@ ActiveRecord::Schema.define(version: 20170504094919) do
   end
 
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.date    "delivery_date"
-    t.integer "price"
-    t.string  "status"
-    t.text    "client_comment", limit: 65535
-    t.string  "attachment"
-    t.integer "profile_id"
+    t.date     "delivery_date"
+    t.date     "order_date"
+    t.integer  "price"
+    t.string   "status"
+    t.text     "client_comment", limit: 65535
+    t.text     "adm_comment",    limit: 65535
+    t.string   "attachment"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "profile_id"
     t.index ["profile_id"], name: "index_orders_on_profile_id", using: :btree
   end
 
   create_table "profiles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name",         limit: 32, null: false
     t.integer  "account_type",            null: false
-    t.integer  "gender"
+    t.string   "gender"
     t.date     "birth"
     t.string   "telephone"
     t.datetime "created_at",              null: false
