@@ -1,5 +1,4 @@
-<div id="rightContent">
-  <div class="row">
+  <div class="row" style="padding-right: 0;">
     <div class="panel panel-primary filterable">
       <div class="panel-heading">
         <h3 class="panel-title">Pedidos</h3>
@@ -9,47 +8,47 @@
       </div>
       <table class="table">
         <thead>
-        <tr class="filters">
-          <th><input type="text" class="form-control" placeholder="ID" disabled></th>
-          <th><input type="text" class="form-control" placeholder="Preço" disabled></th>
-          <th><input type="text" class="form-control" placeholder="Status" disabled></th>
-          <th><input type="text" class="form-control" placeholder="Comentário" disabled></th>
-          <th><input type="text" class="form-control" placeholder="Data de Entrega" disabled></th>
-          <th>Ações</th>
-      </tr>
+          <tr class="filters">
+            <th><input type="text" class="form-control" placeholder="ID" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Preço" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Status" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Comentário" disabled></th>
+            <th><input type="text" class="form-control" placeholder="Data de Entrega" disabled></th>
+            <th>Ações</th>
+          </tr>
         </thead>
         <tbody>
-        <tr>
-          <% if @orders.blank? %>
+          <tr>
+            <% if @orders.blank? %>
             <tr>
-              <th class="danger">Não há pedidos registrados.</th>
+            <th class="danger">Não há pedidos registados.</th>
             </tr>
-        <% else %>
+            <% else %>
             <!--<p>These are the current orders in our system</p>-->
             <% @orders.each do |order| %>
-                <tr>
-                  <td><%= link_to order.id, order_show_path(order.id) %></td>
-                  <td>$<%= order.price %></td>
-                  <td><%= order.status %></td>
-                  <td><%= order.client_comment %></td>
-                  <td><%= order.delivery_date %></td>
-                  <td>
-                      <% if order.status == 'pending' %>
-                      <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza qie deseja apagar?'}%>
-                      <% end %>
-                  </td>
-                </tr>
-            <% end %>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="pull-right">
-  <%= link_to " Criar", criar_path, :class => "btn btn-success  margin-left " %>
-  </div>
-</div>
+            <tr>
+              <td><%= link_to order.id, order_show_path(order.id) %></td>
+              <td>$<%= order.price %></td>
+              <td><%= order.status %></td>
+              <td><%= order.client_comment %></td>
+              <td><%= order.delivery_date %></td>
+              <td>
+                <% if order.status == 'pending' %>
+                <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza qie deseja apagar?'}%>
+                <% end %>
+              </td>
+            </tr>
+            </tr>
 
+            <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="pull-right">
+      <%= link_to " Criar", criar_path, :class => "btn btn-success  margin-left " %>
+    </div>
 
 
 

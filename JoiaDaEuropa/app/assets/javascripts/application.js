@@ -15,7 +15,13 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require bootstrap.min
+//= require jquery.turbolinks
 //= require_tree .
+
+
+var ready;
+ready = function() {
+
 $(document).ready(function(){
     $('.filterable .btn-filter').click(function(){
         var $panel = $(this).parents('.filterable'),
@@ -57,4 +63,9 @@ $(document).ready(function(){
             $table.find('tbody').prepend($('<tr class="no-result text-center"><td colspan="'+ $table.find('.filters th').length +'">No result found</td></tr>'));
         }
     });
+
 });
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

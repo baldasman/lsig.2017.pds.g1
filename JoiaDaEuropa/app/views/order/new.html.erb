@@ -1,17 +1,45 @@
-<div id="right">
-  <h1>Add new order</h1>
+<div class="form-group col-md-4">
 
-    <div>
-        <%= @errors %>
-    </div>
+  <div>
+    <%= @errors %>
+  </div>
 
   <%= form_for :order, url: order_create_path do |o| %>
-      Delivery Date: <%= o.text_field :delivery_date %><br>
-      Price: <%= o.text_field :price %><br>
-      Comment: <%= o.text_area :client_comment %><br>
-      Attachment: <%= o.text_field :attachment %><br>
 
+
+  <div class="form-group row">
+    <h1>Add new order</h1>
+
+    <label class="col-2 col-form-label">Delivery Date</label>
+    <div class="col-10">
+      <%= o.text_field :delivery_date %>    
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Price</label>
+    <div class="col-10">
+      <%= o.text_field :price %>      
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Comment</label>
+    <div class="col-10">
+      <%= o.text_area :client_comment %>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label class="col-2 col-form-label">Attachment</label>
+    <div class="col-10">
+    <%= o.text_field :attachment %>
+    </div><br>
       <%= o.submit %>
+  </div>         
+
+
+
 
   <% end %>
 

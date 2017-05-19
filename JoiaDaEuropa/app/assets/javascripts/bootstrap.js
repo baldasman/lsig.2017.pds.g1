@@ -2375,3 +2375,6 @@ if (typeof jQuery === 'undefined') {
   })
 
 }(jQuery);
+
+$(document).ready(ready);
+$(document).on('page:load', ready);
