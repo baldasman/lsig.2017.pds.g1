@@ -6,7 +6,7 @@ class OrderController < ApplicationController
 
         if @profile.account_type == 1
 
-            @orders = Order.where(profile_id: current_user.profile_id) #, status: 'pending'
+            @orders = Order.where(profile_id: current_user.profile_id) #, status_id: '1'
 
         else
 
@@ -19,6 +19,7 @@ class OrderController < ApplicationController
     def show
 
         @order = Order.find(params[:id])
+        @estado = Estado.all
 
     end
 
@@ -33,7 +34,8 @@ class OrderController < ApplicationController
 
         @order = Order.new order_params
         @order.profile_id = current_user.profile_id
-        @order.status = 'Pendente'
+        @order.status_id = 1
+        #1 = Pendente, #2 = Em andamento, #3 = Finalizado
 
         if @order.save
             redirect_to order_show_path(@order.id)
@@ -45,6 +47,7 @@ class OrderController < ApplicationController
     end
 
     def edit
+        @estado = Estado.all
         @order = Order.find(params[:id])
         @profile = Profile.find_by(id: current_user.profile_id)
     end
@@ -85,7 +88,7 @@ class OrderController < ApplicationController
     end
 
     def orderADM_params
-        params.require(:order).permit(:delivery_date, :price, :status, :client_comment, :attachment)
+        params.require(:order).permit(:delivery_date, :price, :status_id, :client_comment, :attachment)
     end
 
 
