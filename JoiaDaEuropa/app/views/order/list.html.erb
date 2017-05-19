@@ -30,22 +30,23 @@
                 <tr>
                   <td><%= link_to order.id, order_show_path(order.id) %></td>
                   <td>$<%= order.price %></td>
-                  <% if order.status == 2 %>
-                  <td>Cancelado</td>
-                      <%else%>
+                  <% if order.status_id == 1 %>
                   <td>Pendente</td>
+                      <% elsif order.status_id == 2 %>
+                          <td>Em andamento</td>
+                  <% elsif order.status_id == 3 %>
+                      <td>Finalizado</td>
+                      <%else%>
+                  <td>Rejeitado</td>
                       <%end%>
                   <td><%= order.client_comment %></td>
                   <td><%= order.delivery_date %></td>
                   <td>
-                    <!-- nao aparece os botoes -->
-                      <% if order.status_id == 2 %>
+                      <% if order.status_id == 1 %>
                       <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza que deseja apagar?'}%>
                         <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm" %>
-                        <%=  order.status_id  %>
-                        <% else %>
-                        <!-- prova de que o status do pedido é 2 -->
-                        <%=  order.status_id  %>
+                    <% elsif order.status_id == 4 %>
+                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm" %>
                     <% end %>
                   </td>
                 </tr>

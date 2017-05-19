@@ -13,7 +13,15 @@
       <tbody>
       <tr>
         <td>$<%= @order.price %></td>
-        <td><%= @order.status %></td>
+        <% if @order.status_id == 1 %>
+            <td>Pendente</td>
+        <% elsif @order.status_id == 2 %>
+            <td>Em andamento</td>
+        <% elsif @order.status_id == 3 %>
+            <td>Finalizado</td>
+        <%else%>
+            <td>Rejeitado</td>
+        <%end%>
         <td><%= @order.client_comment %></td>
         <td><%= @order.delivery_date %></td>
         <td><%= @order.attachment %></td>
