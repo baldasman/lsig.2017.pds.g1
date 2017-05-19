@@ -102,4 +102,5 @@ Rails.application.routes.draw do
   end
 
   match '/:locale' => "home#index"
+
 end
