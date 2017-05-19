@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
     before_action :authenticate_user!
     before_action :check_lang
     before_action :check_profile
-    before_action :set_locale
 
     private
 
@@ -31,13 +30,11 @@ class ApplicationController < ActionController::Base
                 # Try decoding from browser
                 I18n.locale = _default_lang
                 session[:lang] = _default_lang
-
                 logger.debug '* LANG from browser'
             else
                 # Fault back to PT
                 I18n.locale = :pt
                 session[:lang] = :pt
-
                 logger.debug '* LANG from default'
             end
 
