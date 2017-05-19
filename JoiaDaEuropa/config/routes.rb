@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'order/edit'
   post 'order/delete'
   post 'order/update'
+  get '/recreate', to: 'order#recreate', as: 'recreate'
   #--
 
   #Profile Controller

@@ -8,6 +8,7 @@ class CreateEstados < ActiveRecord::Migration[5.0]
     Estado.create :name => "Em andamento"
     Estado.create :name => "Finalizado"
     Estado.create :name => "Rejeitado"
+    Estado.create :name => "Recriado"
 
   end
 end

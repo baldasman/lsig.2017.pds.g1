@@ -42,12 +42,16 @@
                   <td><%= order.client_comment %></td>
                   <td><%= order.delivery_date %></td>
                   <td>
+                    <% if @profile.account_type == 1 %>
                       <% if order.status_id == 1 %>
                       <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza que deseja apagar?'}%>
                         <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm" %>
                     <% elsif order.status_id == 4 %>
-                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm" %>
+                        <%=link_to "Recriar", recreate_path(:id => order.id), :class=> "btn btn-warning btn-sm" %>
                     <% end %>
+                        <% else %>
+                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm" %>
+                        <% end %>
                   </td>
                 </tr>
 </tr>

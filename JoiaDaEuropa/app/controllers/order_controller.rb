@@ -35,7 +35,7 @@ class OrderController < ApplicationController
         @order = Order.new order_params
         @order.profile_id = current_user.profile_id
         @order.status_id = 1
-        #1 = Pendente, #2 = Em andamento, #3 = Finalizado
+        #1 = Pendente, #2 = Em andamento, #3 = Finalizado, #4 = Recusado
 
         if @order.save
             redirect_to order_show_path(@order.id)
@@ -79,6 +79,12 @@ class OrderController < ApplicationController
     def delete
         Order.find(params[:id]).destroy
         redirect_to order_list_path
+    end
+
+    def recreate
+        @order = Order.find(params[:id])
+        @profile = Profile.find_by(id: current_user.profile_id)
+
     end
 
     private
