@@ -1,47 +1,40 @@
-<div class="form-group col-md-4">
+<div class="form-group col-md-5" style="margin-left: 27%;">
 
   <div>
-    <%= @errors %>
+    <p class="bg-danger">
+      <%= @errors %>
+    </p>
   </div>
+
 
   <%= form_for :order, url: order_update_url(:id => @order.id) do |o| %>
 
-         <div class="form-group row">
-         <h1>Editar pedido #<%= @order.id %></h1>
 
+      <div class="panel panel-default">
+        <div class="panel-body ">
+
+          <p> <h4 class="bg-info">Editar pedido #<%= @order.id %></h4></p>
            <label class="col-2 col-form-label">Delivery Date</label>
            <div class="col-10">
-             <%= o.text_field :delivery_date %>    
+             <%= o.text_field :delivery_date, :class => "form-control" %>
            </div>
-         </div>
 
-         <div class="form-group row">
            <label class="col-2 col-form-label">Price</label>
            <div class="col-10">
-             <%= o.text_field :price %>      
+             <%= o.text_field :price, :class => "form-control" %>
            </div>
-         </div>
 
-         <div class="form-group row">
            <label class="col-2 col-form-label">Comment</label>
            <div class="col-10">
-             <%= o.text_area :client_comment %>      
+             <%= o.text_area :client_comment, :class => "form-control" %>
            </div>
-         </div>
 
-        <div class="form-group row">
           <label class="col-2 col-form-label">Attachment</label>
           <div class="col-10">
-            <%= o.file_field :attachment, :url =>{:action => 'new'}, :html => {:multipart => true} %>      
+            <%= o.file_field :attachment, :url =>{:action => 'new'}, :html => {:multipart => true}, :class => "form-control" %>
           </div><br>
           <%= o.submit %>
-
-        </div> 
-
-
     <% end %>
-
-
-
-
+    </div>
+</div>
 </div>
