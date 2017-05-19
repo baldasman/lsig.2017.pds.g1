@@ -1,16 +1,45 @@
-<div id="right">
-  <h1>Editar perfil</h1>
+<div class="form-group col-md-4">
 
   <div>
     <%= @errors %>
   </div>
 
   <%= form_for :profiles, url: profile_update_path do |p| %>
-      Sexo: <%= p.text_field :gender %><br>
-      Data Nascimento (YYYY-MM-DD) <%= p.text_field :birth %><br>
-      Telefone: <%= p.text_field :telephone %><br>
+     <div class="form-group row">
+     <h1>Editar perfil</h1>
 
-  <%= p.submit %>
+       <label class="col-2 col-form-label">Sexo</label>
+       <div class="col-10">
+       <div class="radio">
+         <label><input type="radio" name="optradio">Masculino</label>
+       </div>
+       <div class="radio">
+         <label><input type="radio" name="optradio">Feminino</label>
+       </div>
+         <%-# p.text_field :gender -%>    
+       </div>
+     </div>
+
+     <div class="form-group row">
+       <label class="col-2 col-form-label">Data Nascimento (YYYY-MM-DD) </label>
+       <div class="col-10">
+         <%= p.text_field :birth %>      
+       </div>
+     </div>
+
+     <div class="form-group row">
+       <label class="col-2 col-form-label">Telefone</label>
+       <div class="col-10">
+         <%= p.text_field :telephone %>      
+       </div><br>
+       <%= p.submit %>
+     </div> 
+
+
   <% end %>
 
 </div>
+
+
+
+
