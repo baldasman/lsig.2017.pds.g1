@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20170519124056) do
     t.integer  "gender"
     t.date     "birth"
     t.string   "telephone"
+    t.string   "nickname"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "document_id"

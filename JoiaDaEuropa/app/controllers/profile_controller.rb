@@ -29,7 +29,7 @@ class ProfileController < ApplicationController
 
     @profile = Profile.new profile_params
     @profile.profile_id = current_user.profile_id
-    @profile.status = 'pending'
+    #@profile.status = 'pending'
 
     if @profile.save
       redirect_to profile_show_path(@profile.id)
@@ -62,7 +62,7 @@ class ProfileController < ApplicationController
   private
 
   def profile_params
-    params.require(:profiles).permit(:gender, :birth, :telephone)
+    params.require(:profiles).permit(:nickname, :gender, :birth, :telephone)
   end
 
 end

@@ -6,6 +6,7 @@ class CreateProfiles < ActiveRecord::Migration[5.0]
       t.column :gender, :integer
       t.column :birth, :date
       t.column :telephone, :string
+      t.column :nickname, :string
       t.timestamps
     end
   end
