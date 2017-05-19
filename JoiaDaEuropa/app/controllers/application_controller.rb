@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
     before_action :check_lang
     before_action :check_profile
 
+    before_action :set_locale
+
     private
 
     def check_lang
