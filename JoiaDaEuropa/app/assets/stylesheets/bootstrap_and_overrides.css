@@ -18,7 +18,7 @@
 }
 
 .container-fluid {
-/*	background-color: #2F6FA7; */
+/*background-color: #2F6FA7; */
 	color: #FFFFFF;
 }
 
@@ -26,4 +26,8 @@
 	border-radius: 25px;
 	border: 2px solid #2F6FA7;
 
+}
+
+.panel-default{
+  background-color: #FCFCFC;
 }

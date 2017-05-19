@@ -1,42 +1,65 @@
-<div class="form-group col-md-4">
+<div class="form-group col-md-4" style="padding-left: 0;">
+
+<div>
+  <%= @errors %>
+</div>
+
+  <div  class="panel panel-primary" >
+    <div class="panel-heading">Editar Perfil</div>
+    <div class="panel-body" style="margin: 10px;">
+  <div class="form-horizontal">
+  <%= form_for :profiles, url: profile_update_path do |p| %>
+
+    <div class="form-group" >
+     <label class="col-2 col-form-label">Sexo</label>
+    <div class="col-10">
+      <div class="radio">
+        <label>
+          <%= p.radio_button :gender, "1", :checked => @profile.gender == 1 %>Masculino
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <%= p.radio_button :gender, "0", :checked => @profile.gender == 0 %>Feminino
+        </label>
+      </div>
+    </div>
+    </div>
+
+    <div class="form-group" >
+      <label for="email" class="col-2 col-form-label">Data Nascimento (YYYY-MM-DD) </label>
+      <div class="col-10">
+      <%= p.text_field :birth, value: @profile.birth, :class => "form-control" %>
+      </div>
+    </div>
+
+    <div class="form-group" >
+      <label for="email" class="col-2 col-form-label">Telefone</label>
+      <div class="col-10">
+      <%= p.text_field :telephone, value: @profile.telephone, :class => "form-control" %>
+      </div><br>
+          <%= p.submit %>
+
+    </div>
+
+ 
+
+    <br>
+    <br>
+
+  </div>
+  </form>
+</div>
+</div>
 
   <div>
     <%= @errors %>
   </div>
 
-  <%= form_for :profiles, url: profile_update_path do |p| %>
-      <div class="form-group row">
-        <h1>Editar perfil</h1>
+  
 
-        <label class="col-2 col-form-label">Sexo</label>
-        <div class="col-10">
-          <div class="radio">
-            <label>
-              <%= p.radio_button :gender, "1", :checked => @profile.gender == 1 %>Masculino
-            </label>
-          </div>
-          <div class="radio">
-            <label>
-              <%= p.radio_button :gender, "0", :checked => @profile.gender == 0 %>Fem
-            </label>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-2 col-form-label">Data Nascimento (YYYY-MM-DD) </label>
-            <div class="col-10">
-              <%= p.text_field :birth, value: @profile.birth %>
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-2 col-form-label">Telefone</label>
-            <div class="col-10">
-              <%= p.text_field :telephone, value: @profile.telephone, :class => "form-control" %>
-            </div>
-            <br>
-            <%= p.submit %>
-          </div>
   <% end %>
-  </div>
-  </div>
+
+
 </div>
+
