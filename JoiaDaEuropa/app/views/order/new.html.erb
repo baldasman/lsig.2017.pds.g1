@@ -1,46 +1,41 @@
-<div class="form-group col-md-4">
+
+<div class="form-group col-md-5" style="margin-left: 27%;">
 
   <div>
-    <%= @errors %>
+    <p class="bg-danger">
+      <%= @errors %>
+    </p>
   </div>
 
   <%= form_for :order, url: order_create_path do |o| %>
 
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h4>Add new order</h4></div>
+        <div class="panel-body">
+          <label>Delivery Date</label>
+          <div class="col-10">
+            <%= o.text_field :delivery_date, :class => "form-control" %>
+          </div>
 
-  <div class="form-group row">
-    <h1>Add new order</h1>
+          <label class="col-2 col-form-label">Price</label>
+          <div class="col-10">
+            <%= o.text_field :price, :class => "form-control" %>
+          </div>
 
-    <label class="col-2 col-form-label">Delivery Date</label>
-    <div class="col-10">
-      <%= o.text_field :delivery_date %>    
-    </div>
-  </div>
+          <label class="col-2 col-form-label">Comment</label>
+          <div class="col-10">
+            <%= o.text_area :client_comment, :class => "form-control" %>
+          </div>
 
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Price</label>
-    <div class="col-10">
-      <%= o.text_field :price %>      
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Comment</label>
-    <div class="col-10">
-      <%= o.text_area :client_comment %>
-    </div>
-  </div>
-
-  <div class="form-group row">
-    <label class="col-2 col-form-label">Attachment</label>
-    <div class="col-10">
-<%= o.file_field :attachment, :url =>{:action => 'new'}, :html => {:multipart => true} %>
-    </div><br>
-      <%= o.submit %>
-  </div>         
-
-
-
-
+          <label class="col-2 col-form-label">Attachment</label>
+          <div class="col-10">
+            <%= o.file_field :attachment, :url => {:action => 'new'}, :html => {:multipart => true}, :class => "form-control" %>
+          </div>
+          <br>
+          <%= o.submit%>
+        </div>
   <% end %>
-
+  </div>
+</div>
 </div>

@@ -1,8 +1,25 @@
-<h1>Pedido #<%= @order.id %>cadastrado no sistema</h1>
-
-
-  <td>$<%= @order.price %></td><br>
-  <td><%= @order.status %></td><br>
-  <td><%= @order.client_comment %></td><br>
-  <td><%= @order.delivery_date %></td><br>
-  <td><%= @order.attachment %></td><br>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h1 class="bg-success">Pedido #<%= @order.id %>- Cadastrado no sistema</h1>
+    <table class="table">
+      <thead>
+      <tr>
+        <th>Preço</th>
+        <th>Status</th>
+        <th>Comentário</th>
+        <th>Data de entrega</th>
+        <th>Anexo</th>
+      </thead>
+      <tbody>
+      <tr>
+        <td>$<%= @order.price %></td>
+        <td><%= @order.status %></td>
+        <td><%= @order.client_comment %></td>
+        <td><%= @order.delivery_date %></td>
+        <td><%= @order.attachment %></td>
+        <br/>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

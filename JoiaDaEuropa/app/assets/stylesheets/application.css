@@ -125,3 +125,8 @@ html, body, .row-offcanvas {
 .filterable .filters input[disabled]:-ms-input-placeholder {
     color: #333;
 }
+
+.centerContent{
+    margin: 0 auto;
+    width:80% /* value of your choice which suits your alignment */
+}
