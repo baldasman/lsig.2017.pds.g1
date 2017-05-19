@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 20170519124056) do
   create_table "orders", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.date    "delivery_date"
     t.integer "price"
-    t.integer "status_id"
+    t.string  "status"
     t.text    "client_comment", limit: 65535
     t.string  "attachment"
     t.integer "profile_id"
