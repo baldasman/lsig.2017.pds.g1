@@ -33,7 +33,7 @@
   <div class="form-group row">
     <label class="col-2 col-form-label">Attachment</label>
     <div class="col-10">
-    <%= o.text_field :attachment %>
+<%= o.file_field :attachment, :url =>{:action => 'new'}, :html => {:multipart => true} %>
     </div><br>
       <%= o.submit %>
   </div>         

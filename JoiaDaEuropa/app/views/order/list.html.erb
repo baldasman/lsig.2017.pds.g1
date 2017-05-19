@@ -26,20 +26,25 @@
             <% else %>
             <!--<p>These are the current orders in our system</p>-->
             <% @orders.each do |order| %>
-            <tr>
-              <td><%= link_to order.id, order_show_path(order.id) %></td>
-              <td>$<%= order.price %></td>
-              <td><%= order.status %></td>
-              <td><%= order.client_comment %></td>
-              <td><%= order.delivery_date %></td>
-              <td>
-                <% if order.status == 'pending' %>
-                <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza qie deseja apagar?'}%>
-                <% end %>
-              </td>
-            </tr>
-            </tr>
 
+                <tr>
+                  <td><%= link_to order.id, order_show_path(order.id) %></td>
+                  <td>$<%= order.price %></td>
+                  <td><%= order.status %></td>
+                  <td><%= order.client_comment %></td>
+                  <td><%= order.delivery_date %></td>
+                  <td>
+                      <% if order.status == 'pending' %>
+                      <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza qie deseja apagar?'}%>
+                      <% end %>
+                  </td>
+                  <td>
+                    <% if order.status == 'pending' %>
+                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-danger btn-sm" %>
+                    <% end %>
+                  </td>
+                </tr>
+</tr>
             <% end %>
             <% end %>
           </tbody>
