@@ -51,4 +51,35 @@ Rails.application.routes.draw do
   get '/Criar', to:'order#new', as:'criar'
   get '/ListarEncomendas', to:'order#list', as:'listar'
 
+  scope "(:locale)", :locale => /en|pt/ do
+
+        get 'home' => 'home#index'
+        get 'contactos' => 'home#contactos'
+        get 'missao' => 'home#missao'
+        get 'quemsomos' => 'home#quemsomos'
+
+        get 'new' => 'attachments#new'
+        get 'Index' => 'attachments#index'
+        get 'show' => 'attachments#show'
+
+        get 'edit_account' => 'client_area#edit_account'
+        get 'encomendas' => 'client_area#encomendas'
+        get 'index' => 'client_area#index'
+        get 'inicio' => 'client_area#inicio'
+        get 'perfil' => 'client_area#perfi'
+        get 'profile_creation' => 'client_area#Profile_creation'
+
+        get 'edit' => 'order#edit'
+        get 'list' => 'order#list'
+        get 'new' => 'order#new'
+        get 'show' => 'order#show'
+
+        get 'edit' => 'profile#edit'
+        get 'index' => 'profile#index'
+        get 'list' => 'profile#list'
+
+      end
+
+    get '/:locale' => "home#index"
+
 end
