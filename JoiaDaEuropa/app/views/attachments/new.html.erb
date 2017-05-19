@@ -1,4 +1,9 @@
-<%= form_for(:attachment, :url =>{:action => 'new'}, :html => {:multipart => true}) do |f| %>
-<%= f.file_field :attachment %>
-<%= f.submit "Upload" %>
+<%= form_for :attachments, :url => attachments_new_path do |f| %>
+    ...
+    <div class="field">
+      <%= f.label :attachments %><br>
+      <%= f.file_field :attachments %>
+      <br>
+      <%= f.submit%>
+    </div>
 <% end %>

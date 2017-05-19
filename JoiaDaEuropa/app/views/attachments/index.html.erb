@@ -1,2 +1,8 @@
-<h1>Attachments#index</h1>
-<p>Find me in app/views/attachments/index.html.erb</p>
+<% if @attachment %>
+    <% @attachment.each do |image| %>
+        <%= image_tag image.attachment.url %>
+        <%= image_tag image.title, {class: "list-group-item"} %>
+        <a href="/images/<%= image.id %>">Display</a>
+        <a href="/images/edit/<%= image.id %>">Edit</a>
+    <% end %>
+<% end %>
