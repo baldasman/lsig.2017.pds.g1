@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
     before_action :authenticate_user!
     before_action :check_lang
     before_action :check_profile
+    before_action :set_locale
 
     private
 

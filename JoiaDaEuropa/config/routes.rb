@@ -50,4 +50,56 @@ Rails.application.routes.draw do
   get '/Inicio', to:'client_area#inicio', as:'inicio'
   get '/Criar', to:'order#new', as:'criar'
   get '/ListarEncomendas', to:'order#list', as:'listar'
+
+  scope "(:locale)", :locale => /en|pt/ do
+
+    match 'home' => 'home#index'
+    match 'contactos' => 'home#contactos'
+    match 'missao' => 'home#missao'
+    match 'quemsomos' => 'home#quemsomos'
+
+    match 'new' => 'attachments#new'
+    match 'Index' => 'attachments#index'
+    match 'show' => 'attachments#show'
+
+    match 'edit_account' => 'client_area#edit_account'
+    match 'encomendas' => 'client_area#encomendas'
+    match 'index' => 'client_area#index'
+    match 'inicio' => 'client_area#inicio'
+    match 'perfil' => 'client_area#perfi'
+    match 'profile_creation' => 'client_area#Profile_creation'
+
+    match 'edit' => 'order#edit'
+    match 'list' => 'order#list'
+    match 'new' => 'order#new'
+    match 'show' => 'order#show'
+
+    match 'edit' => 'profile#edit'
+    match 'index' => 'profile#index'
+    match 'list' => 'profile#list'
+
+    match 'equipe/sylvain' => 'equipe#sylvain'
+    match 'equipe/benoit' => 'equipe#benoit'
+    match 'equipe/stephane' => 'equipe#stephane'
+    match 'equipe/suemarie' => 'equipe#suemarie'
+    match 'equipe/regis' => 'equipe#regis'
+    match 'equipe/fred' => 'equipe#fred'
+
+    match 'equipe/callback' => 'equipe#callback'
+    match 'equipe/auth' => 'equipe#auth'
+    match 'equipe/ajax_contact' => 'equipe#ajax_contact'
+
+    match 'linkedinauth/callback' => 'linkedinAuth#callback'
+    match 'linkedinauth/init_auth' => 'linkedinAuth#init_auth'
+
+    match 'mission' => 'mission#index'
+    match 'service' => 'service#index'
+    match 'developmen' => 'developmen#index'
+
+    match 'contact' => 'contact#index'
+
+    match 'mandats' => 'mandats#index'
+  end
+
+  match '/:locale' => "home#index"
 end
