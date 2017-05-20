@@ -3,10 +3,7 @@ class AttachmentsController < ApplicationController
   end
 
   def new
-    @attachment = Attachment.new(params[:@attachment])
-    if @attachment.save
-      redirect_to :action => :show, :id => @attachment.id
-    end
+    @attachment = Attachment.new(params[:attachments])
   end
 
   def show
