@@ -39,13 +39,13 @@
                   <td><%= order.delivery_date %></td>
                   <td>
                     <!-- nao aparece os botoes -->
-                      <% if order.status == 2 %>
+                      <% if order.status_id == 2 %>
                       <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza que deseja apagar?'}%>
                         <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm" %>
-                        <%=  order.status  %>
+                        <%=  order.status_id  %>
                         <% else %>
                         <!-- prova de que o status do pedido é 2 -->
-                        <%=  order.status  %>
+                        <%=  order.status_id  %>
                     <% end %>
                   </td>
                 </tr>

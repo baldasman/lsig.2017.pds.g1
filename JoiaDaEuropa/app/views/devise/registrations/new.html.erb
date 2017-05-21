@@ -1,4 +1,6 @@
-<div id="loginForm" class="panel panel-primary">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+<div class="panel panel-primary">
   <div class="panel-heading">Sign up</div>
   <div class="panel-body">
 
@@ -23,19 +25,16 @@
           <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control" %>
         </div>
         </br>
-        <div class="actions">
-          <%= f.submit "Sign up" %>
+        <div class="col-md-12 text-center">
+          <div class="actions">
+            <%= f.submit "Sign up", :class => "btn btn-success" %>
+          </div>
         </div>
     <% end %>
+  </div>
+</div>
 
-    <!--<div class="row">
-      <div class="btn-group">
-        <div class="col-sm-12 text-right">
-          <br/>
-          <%= render "devise/shared/links" %>
-        </div>
-      </div>
-    </div>-->
-
+  <div class="col-md-12 text-center">
+<%= render "devise/shared/links" %>
   </div>
 </div>

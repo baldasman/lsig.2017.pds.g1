@@ -1,26 +1,27 @@
-<div id="right">
-  <div id="loginForm" class="panel panel-primary">
+<div class="col-md-4"></div>
+<div class="col-md-4">
+  <div  class="panel panel-primary">
     <div class="panel-heading"><h2>Forgot your password?</h2></div>
     <div class="panel-body">
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
+      <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: {method: :post}) do |f| %>
+          <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, :class => "form-control" %>
-  </div>
+          <div class="field">
+            <%= f.label :email %><br/>
+            <%= f.email_field :email, autofocus: true, :class => "form-control" %>
+          </div>
 
           <br/>
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions", :class => "btn btn-warning" %>
-  </div>
-<% end %>
-<br/>
-      <div class="btn-group text-center">
-<%= render "devise/shared/links" %>
-      </div>
-<br/>
+          <div class="actions">
+            <%= f.submit "Send me reset password instructions", :class => "btn btn-success" %>
+          </div>
+      <% end %>
+      <br/>
     </div>
   </div>
+</div>
+
+<div class="col-md-12 text-center">
+  <%= render "devise/shared/links" %>
 </div>
