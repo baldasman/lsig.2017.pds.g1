@@ -36,5 +36,7 @@ class HomeController < ApplicationController
     def inicioADM
     end
 
+    def noticias
+    end
 
 end

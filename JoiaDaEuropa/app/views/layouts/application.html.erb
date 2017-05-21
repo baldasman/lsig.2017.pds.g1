@@ -48,8 +48,8 @@
               <li><%= link_to "Missão", missao_path %></li>
               <li><%= link_to "Quem Somos", quemsomos_path %></li>
               <li><%= link_to "Contactos", contactos_path %></li>
+              <li><%= link_to "Notícias", noticias_path %></li>
               <% if current_user %>
-
                 <li><%= link_to "Inicio", inicio_path %></li>
                 <li><%= link_to "Perfil", perfil_path %></li>
                 <li><%= link_to "Encomendas", listar_path %></li>
@@ -58,8 +58,9 @@
               <ul class="nav navbar-nav navbar-right">
 
               <li><%= link_to 'PT', '?lang=pt' %></li>
-                <li><%= link_to 'EN', '?lang=en' %></li>
-                  
+                <li><span>||||</span></li>
+              <li><%= link_to 'EN', '?lang=en' %></li>
+                <li><span>||||</span></li>
                 <% if current_user %>
                     <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
                 <% else %>

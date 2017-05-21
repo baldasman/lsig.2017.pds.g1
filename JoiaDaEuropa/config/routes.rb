@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   get '/Index', to:'home#index', as:'index'
   get '/QuemSomos', to:'home#quemsomos', as:'quemsomos'
   get '/Contactos', to:'home#contactos', as:'contactos'
+  get '/Noticias', to:'home#noticias', as:'noticias'
   get '/Encomendas', to:'client_area#encomendas', as:'encomendas'
   get '/Perfil', to:'profile#edit', as:'perfil'
   get '/Inicio', to:'client_area#inicio', as:'inicio'

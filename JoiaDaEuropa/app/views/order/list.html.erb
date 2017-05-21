@@ -28,29 +28,29 @@
             <% @orders.each do |order| %>
 
                 <tr>
-                  <td><%= link_to order.id, order_show_path(order.id) %></td>
-                  <td>$<%= order.price %></td>
+                  <td class="col-md-2"><%= link_to order.id, order_show_path(order.id)%></td>
+                  <td class="col-md-2" >$<%= order.price %></td>
                   <% if order.status_id == 1 %>
-                  <td>Pendente</td>
+                  <td class="col-md-2">Pendente</td>
                       <% elsif order.status_id == 2 %>
-                          <td>Em andamento</td>
+                          <td class="col-md-2">Em andamento</td>
                   <% elsif order.status_id == 3 %>
-                      <td>Finalizado</td>
+                      <td class="col-md-2">Finalizado</td>
                       <%else%>
-                  <td>Rejeitado</td>
+                  <td class="col-md-2">Rejeitado</td>
                       <%end%>
-                  <td><%= order.client_comment %></td>
-                  <td><%= order.delivery_date %></td>
-                  <td>
+                  <td class="col-md-2"><%= order.client_comment %></td>
+                  <td class="col-md-2"><%= order.delivery_date %></td>
+                  <td class="col-md-2">
                     <% if @profile.account_type == 1 %>
                       <% if order.status_id == 1 %>
-                      <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm", data: {confirm: 'Tem a certeza que deseja apagar?'}%>
-                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm" %>
+                      <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm pull-left", data: {confirm: 'Tem a certeza que deseja apagar?'}%>
+                      <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm margin-left " %>
                     <% elsif order.status_id == 4 %>
-                        <%=link_to "Recriar", recreate_path(:id => order.id), :class=> "btn btn-warning btn-sm" %>
+                        <%=link_to "Recriar", recreate_path(:id => order.id), :class=> "btn btn-warning btn-sm margin-left " %>
                     <% end %>
                         <% else %>
-                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm" %>
+                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm margin-left" %>
                         <% end %>
                   </td>
                 </tr>
@@ -61,8 +61,11 @@
         </table>
       </div>
     </div>
-    <div class="pull-right">
-      <%= link_to " Criar", criar_path, :class => "btn btn-success  margin-left " %>
+    <div>
+      <%= link_to "Voltar ao inicio", inicio_path, :class => "btn btn-warning btn-sm text-left" %>
+      <% if @profile.account_type == 1 %>
+      <%= link_to " Criar nova encomenda", criar_path, :class => "btn btn-success  margin-left text-right" %>
+      <% end %>
     </div>
 
 
