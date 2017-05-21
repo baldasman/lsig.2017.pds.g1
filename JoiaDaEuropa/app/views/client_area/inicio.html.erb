@@ -1,7 +1,10 @@
 <div class="jumbotron">
 <h2>Bem-vindo, <%= current_user.email %>! </h2>
   </br></br></br></br>
+  <%  @profile = current_user.profile
+    if @profile.account_type == 1 %>
   <%= link_to " Criar nova encomenda", criar_path, :class => "btn btn-primary btn-lg margin-left glyphicon glyphicon-plus" %>
+      <% end %>
   <%= link_to " Encomendas em andamento", listar_path, :class => "btn btn-primary btn-lg margin-left glyphicon glyphicon-list" %>
   <%= link_to " Encomendas finalizadas", listar_path, :class => "btn btn-primary btn-lg margin-left glyphicon glyphicon-ok" %>
 </div>

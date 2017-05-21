@@ -18,6 +18,7 @@ class HomeController < ApplicationController
     end
 
     def inicio
+        @profile = Profile.find_by(id: current_user.profile_id)
     end
 
     def perfil
