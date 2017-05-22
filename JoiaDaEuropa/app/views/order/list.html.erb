@@ -1,72 +1,76 @@
-  <div class="row" style="padding-right: 0;">
-    <div class="panel panel-default filterable">
-      <div class="panel-heading">
-        <h3 class="panel-title">Pedidos</h3>
-        <div class="pull-right">
-          <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter</button>
-        </div>
+<div class="row" style="padding-right: 0;">
+  <div class="panel panel-default filterable">
+    <div class="panel-heading">
+      <h3 class="panel-title">Pedidos</h3>
+      <div class="pull-right">
+        <button class="btn btn-default btn-xs btn-filter"><span class="glyphicon glyphicon-filter"></span> Filter
+        </button>
       </div>
-      <table class="table">
-        <thead>
-          <tr class="filters">
-            <th><input type="text" class="form-control" placeholder="ID" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Preço" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Status" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Comentário" disabled></th>
-            <th><input type="text" class="form-control" placeholder="Data de Entrega" disabled></th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
+    </div>
+    <table class="table">
+      <thead>
+      <tr class="filters">
+        <th><input type="text" class="form-control" placeholder="ID" disabled></th>
+        <th><input type="text" class="form-control" placeholder="Preço" disabled></th>
+        <th><input type="text" class="form-control" placeholder="Status" disabled></th>
+        <th><input type="text" class="form-control" placeholder="Comentário" disabled></th>
+        <th><input type="text" class="form-control" placeholder="Data de Entrega" disabled></th>
+        <th>Ações</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <% if @orders.blank? %>
           <tr>
-            <% if @orders.blank? %>
-            <tr>
             <th class="danger">Não há pedidos registados.</th>
-            </tr>
-            <% else %>
-            <!--<p>These are the current orders in our system</p>-->
-            <% @orders.each do |order| %>
+          </tr>
+      <% else %>
+          <!--<p>These are the current orders in our system</p>-->
+          <% @orders.each do |order| %>
 
-                <tr>
-                  <td class="col-md-2"><%= link_to order.id, order_show_path(order.id)%></td>
-                  <td class="col-md-2" >$<%= order.price %></td>
-                  <% if order.status_id == 1 %>
-                  <td class="col-md-2">Pendente</td>
-                      <% elsif order.status_id == 2 %>
-                          <td class="col-md-2">Em andamento</td>
-                  <% elsif order.status_id == 3 %>
-                      <td class="col-md-2">Finalizado</td>
-                      <%else%>
-                  <td class="col-md-2">Rejeitado</td>
-                      <%end%>
-                  <td class="col-md-2"><%= order.client_comment %></td>
-                  <td class="col-md-2"><%= order.delivery_date %></td>
-                  <td class="col-md-2">
-                    <% if @profile.account_type == 1 %>
+              <tr>
+                <td class="col-md-2"><%= link_to order.id, order_show_path(order.id) %>
+                  <%= link_to "Visualizar", order_show_path(order.id), :class => "btn btn-primary btn-xs " %>
+                </td>
+                <td class="col-md-2">$<%= order.price %></td>
+                <% if order.status_id == 1 %>
+                    <td class="col-md-2">Pendente</td>
+                <% elsif order.status_id == 2 %>
+                    <td class="col-md-2">Em andamento</td>
+                <% elsif order.status_id == 3 %>
+                    <td class="col-md-2">Finalizado</td>
+                <% else %>
+                    <td class="col-md-2">Rejeitado</td>
+                <% end %>
+                <td class="col-md-2"><%= order.client_comment %></td>
+                <td class="col-md-2"><%= order.delivery_date %></td>
+                <td class="col-md-6">
+                  <% if @profile.account_type == 1 %>
                       <% if order.status_id == 1 %>
-                      <%=button_to "Cancelar", order_delete_path(:id => order.id), :class=> "btn btn-danger btn-sm pull-left", data: {confirm: 'Tem a certeza que deseja apagar?'}%>
-                      <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm margin-left " %>
-                    <% elsif order.status_id == 4 %>
-                        <%=link_to "Recriar", recreate_path(:id => order.id), :class=> "btn btn-warning btn-sm margin-left " %>
-                    <% end %>
-                        <% else %>
-                        <%=link_to "Editar", order_edit_url(:id => order.id), :class=> "btn btn-warning btn-sm margin-left" %>
-                        <% end %>
-                  </td>
-                </tr>
-</tr>
-            <% end %>
-            <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div>
-      <%= link_to "Voltar ao inicio", inicio_path, :class => "btn btn-warning btn-sm text-left" %>
-      <% if @profile.account_type == 1 %>
-      <%= link_to " Criar nova encomenda", criar_path, :class => "btn btn-success  margin-left text-right" %>
+                          <%= button_to "Cancelar", order_delete_path(:id => order.id), :class => "btn btn-danger btn-sm pull-left", data: {confirm: 'Tem a certeza que deseja apagar?'} %>
+                          <%= link_to "Editar", order_edit_url(:id => order.id), :class => "btn btn-warning btn-sm margin-left " %>
+                      <% elsif order.status_id == 4 %>
+                          <%= link_to "Recriar", recreate_path(:id => order.id), :class => "btn btn-warning btn-sm " %>
+                      <% end %>
+                  <% else %>
+                      <%= link_to "Editar", order_edit_url(:id => order.id), :class => "btn btn-warning btn-sm margin-left" %>
+                  <% end %>
+                </td>
+              </tr>
+              </tr>
+          <% end %>
       <% end %>
-    </div>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div>
+
+  <%= link_to "Voltar ao inicio", inicio_path, :class => "btn btn-warning btn-sm text-left" %>
+  <% if @profile.account_type == 1 %>
+      <%= link_to " Criar nova encomenda", criar_path, :class => "btn btn-success  margin-left text-right" %>
+  <% end %>
+</div>
 
 
 
