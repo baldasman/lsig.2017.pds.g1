@@ -16,19 +16,6 @@
 
 <body>
 
-<!--<div class="row-offcanvas row-offcanvas-left">
-  <div id="left" class="leftMenu">
-    <div id="logo"><img src="<%= asset_path 'logo.png' %>"></div>
-      <%= link_to "Home", index_path %>
-      <%= link_to "Missão", missao_path %>
-      <%= link_to "Quem Somos", quemsomos_path %>
-      <%= link_to "Contactos", contactos_path %>
-      <% if current_user %>
-        <%= link_to "Inicio", inicio_path %>
-        <%= link_to "Perfil", perfil_path %>
-        <%= link_to "Encomendas", listar_path %>
-      <% end %>
-  </div>-->
   <header class="navbar navbar-fixed-top" style="padding-top: 15px"> 
     <nav class="navbar-inner">
       <div class="container">
@@ -50,7 +37,7 @@
               <li><%= link_to "Contactos", contactos_path %></li>
               <li><%= link_to "Notícias", noticias_path %></li>
               <% if current_user %>
-                <li><%= link_to "Inicio", inicio_path %></li>
+                <li><%= link_to "Início", inicio_path %></li>
                 <li><%= link_to "Perfil", perfil_path %></li>
                 <li><%= link_to "Encomendas", listar_path %></li>
               <% end %>
