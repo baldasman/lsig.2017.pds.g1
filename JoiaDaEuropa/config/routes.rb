@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get '/client_area/edit_account'
   patch '/client_area/save_account'
 
-  root to: 'home#index'
+  root to: 'client_area#inicio'
 
   #Order Controller
 

@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-body">
-    <h1 class="bg-info">Pedido #<%= @order.id %>- Cadastrado no sistema</h1>
+    <h1 class="bg-info text-center">Pedido #<%= @order.id %> - Cadastrado no sistema</h1>
     <table class="table">
       <thead>
       <tr>
@@ -9,6 +9,7 @@
         <th>Comentário</th>
         <th>Data de entrega</th>
         <th>Anexo</th>
+        <th>Ações</th>
       </thead>
       <tbody>
       <tr>
@@ -22,9 +23,21 @@
         <%else%>
             <td>Rejeitado</td>
         <%end%>
-        <td><%= @order.client_comment %></td>
+        <td class="col-md-4"><%= @order.client_comment %></td>
         <td><%= @order.delivery_date %></td>
         <td><%= @order.attachment %></td>
+        <td>
+              <% if @order.status_id == 1 %>
+                  <%= button_to "Cancelar", order_delete_path(:id => @order.id), :class => "btn btn-danger btn-sm pull-left", data: {confirm: 'Tem a certeza que deseja apagar?'} %>
+                  <%= link_to "Editar", order_edit_url(:id => @order.id), :class => "btn btn-warning btn-sm margin-left " %>
+              <% elsif @order.status_id == 4 %>
+                  <%= link_to "Recriar", recreate_path(:id => @order.id), :class => "btn btn-warning btn-sm " %>
+              <% elsif @order.status_id == 3%>
+                  <p >Não há ações disponíveis</p>
+              <% elsif @order.status_id == 2 %>
+                  <p >Aguarde o nosso feedback</p>
+              <% end %>
+        </td>
         <br/>
       </tr>
       </tbody>

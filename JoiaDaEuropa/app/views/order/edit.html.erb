@@ -27,6 +27,31 @@
         $('#price').bind('keypress',mask.money)
     });
 
+
+    function formatar(src, mask,e)
+    {
+        var tecla =""
+        if (document.all) // Internet Explorer
+            tecla = event.keyCode;
+        else
+            tecla = e.which;
+        //code = evente.keyCode;
+        if(tecla != 8){
+
+
+            if (src.value.length == src.maxlength){
+                return;
+            }
+            var i = src.value.length;
+            var saida = mask.substring(0,1);
+            var texto = mask.substring(i);
+            if (texto.substring(0,1) != saida)
+            {
+                src.value += texto.substring(0,1);
+            }
+        }
+    }
+
 </script>
 
 <div class="form-group col-md-5" style="margin-left: 29%;">
@@ -47,7 +72,7 @@
           <p> <h4 class="bg-info">Editar pedido #<%= @order.id %></h4></p>
            <label class="col-2 col-form-label">Delivery Date (YYYY/MM/DD)</label>
            <div class="col-10">
-             <%= o.text_field :delivery_date, :class => "form-control", :required => true, :maxlength => 10 %>
+             <%= o.text_field :delivery_date, :class => "form-control", :required => true, :maxlength => 10, :Onkeyup=>"formatar(this,'####/##/##',event)" %>
            </div>
 
            <label class="col-2 col-form-label">Price</label>

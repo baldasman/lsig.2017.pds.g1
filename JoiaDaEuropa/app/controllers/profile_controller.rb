@@ -48,7 +48,7 @@ class ProfileController < ApplicationController
     @profile = Profile.find_by(id: current_user.profile_id)
     @profile.update_attributes profile_params
     if @profile.save
-      redirect_to profile_edit_path(@profile.id)
+     redirect_to profile_edit_path(@profile.id), notice: 'Perfil atualizado!'
     else
       flash[:errors] = @profile.errors.messages
     end
